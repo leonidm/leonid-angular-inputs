@@ -1,0 +1,23 @@
+<hello name="{{ name }}"></hello>
+<p>
+	Start editing to see some magic happen :)
+</p>
+<form>
+	<div *ngFor="let inp of inputs" [ngSwitch]="inp.type">
+		<input *ngSwitchCase="'radio'" type="radio" [id]="inp.id" [name]="inp.name" [attr.name]="inp.name"
+        [value]="inp.val" [(ngModel)]="inp.commonVal"/>
+		<input *ngSwitchCase="'checkbox'" type="checkbox" [id]="inp.id" [name]="inp.name" [attr.name]="inp.name"
+        [(ngModel)]="inp.val"/>
+		<input *ngSwitchDefault [type]="inp.type" [id]="inp.id" [name]="inp.name" [attr.name]="inp.name"
+        [(ngModel)]="inp.val"/>
+  </div>
+
+
+
+</form>
+<hr />
+<div *ngFor="let inp of inputs"> {{inp | json}}</div>
+{{radioVal}}
+
+<br/>
+<app-second-form></app-second-form>
